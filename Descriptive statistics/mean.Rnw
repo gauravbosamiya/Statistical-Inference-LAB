@@ -1,0 +1,55 @@
+\documentclass{article}
+
+\begin{document}
+
+<<>>=
+
+moments<-function(x)
+{
+  l = length(x) # total no of observation
+  print(l)
+  s=sum(x)
+  
+  
+  m<-round((s/l), 2) ## mean
+  print(paste("mean is", m))
+  
+  m2<-round((sum((x-m)^2)/l),2)
+  print(paste("second central central is", m2))
+  
+  m3<-round((sum((x-m)^3)/l ), 2)
+  print(paste("third central central is", m3))
+  
+  m4<-round((sum((x-m)^4)/l ), 2)
+  print(paste("fourth central central is", m4))
+  
+  beta1 <-round( ((m3)^2/(m2)^3),2)
+  print(paste("Skewness is", beta1))
+  
+  beta2<-round( ((m4)/ (m2)^2),2)
+  print(paste("Kurtosis is", beta2))
+  
+  gamma1<-round( (sqrt(beta1)) , 2)
+  print(paste("Skewness is", gamma1))
+  
+  gamma2<-round((beta2-3),2)
+  print(paste("Kurtosis is", gamma2))
+  
+}
+cars
+moments(cars$speed)
+
+
+@
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+M1 & 15.4 \\
+M2 & 27.4 \\
+M3 & -16.34 \\
+\hline
+\end{tabular}
+\end{center}
+
+\end{document}

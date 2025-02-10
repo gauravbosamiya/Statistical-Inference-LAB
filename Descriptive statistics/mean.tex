@@ -1,0 +1,172 @@
+\documentclass{article}\usepackage[]{graphicx}\usepackage[]{xcolor}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlsng}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hldef}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hldef{moments}\hlkwb{<-}\hlkwa{function}\hldef{(}\hlkwc{x}\hldef{)}
+\hldef{\{}
+  \hldef{l} \hlkwb{=} \hlkwd{length}\hldef{(x)} \hlcom{# total no of observation}
+  \hlkwd{print}\hldef{(l)}
+  \hldef{s}\hlkwb{=}\hlkwd{sum}\hldef{(x)}
+
+
+  \hldef{m}\hlkwb{<-}\hlkwd{round}\hldef{((s}\hlopt{/}\hldef{l),} \hlnum{2}\hldef{)} \hlcom{## mean}
+  \hlkwd{print}\hldef{(}\hlkwd{paste}\hldef{(}\hlsng{"mean is"}\hldef{, m))}
+
+  \hldef{m2}\hlkwb{<-}\hlkwd{round}\hldef{((}\hlkwd{sum}\hldef{((x}\hlopt{-}\hldef{m)}\hlopt{^}\hlnum{2}\hldef{)}\hlopt{/}\hldef{l),}\hlnum{2}\hldef{)}
+  \hlkwd{print}\hldef{(}\hlkwd{paste}\hldef{(}\hlsng{"second central central is"}\hldef{, m2))}
+
+  \hldef{m3}\hlkwb{<-}\hlkwd{round}\hldef{((}\hlkwd{sum}\hldef{((x}\hlopt{-}\hldef{m)}\hlopt{^}\hlnum{3}\hldef{)}\hlopt{/}\hldef{l ),} \hlnum{2}\hldef{)}
+  \hlkwd{print}\hldef{(}\hlkwd{paste}\hldef{(}\hlsng{"third central central is"}\hldef{, m3))}
+
+  \hldef{m4}\hlkwb{<-}\hlkwd{round}\hldef{((}\hlkwd{sum}\hldef{((x}\hlopt{-}\hldef{m)}\hlopt{^}\hlnum{4}\hldef{)}\hlopt{/}\hldef{l ),} \hlnum{2}\hldef{)}
+  \hlkwd{print}\hldef{(}\hlkwd{paste}\hldef{(}\hlsng{"fourth central central is"}\hldef{, m4))}
+
+  \hldef{beta1} \hlkwb{<-}\hlkwd{round}\hldef{( ((m3)}\hlopt{^}\hlnum{2}\hlopt{/}\hldef{(m2)}\hlopt{^}\hlnum{3}\hldef{),}\hlnum{2}\hldef{)}
+  \hlkwd{print}\hldef{(}\hlkwd{paste}\hldef{(}\hlsng{"Skewness is"}\hldef{, beta1))}
+
+  \hldef{beta2}\hlkwb{<-}\hlkwd{round}\hldef{( ((m4)}\hlopt{/} \hldef{(m2)}\hlopt{^}\hlnum{2}\hldef{),}\hlnum{2}\hldef{)}
+  \hlkwd{print}\hldef{(}\hlkwd{paste}\hldef{(}\hlsng{"Kurtosis is"}\hldef{, beta2))}
+
+  \hldef{gamma1}\hlkwb{<-}\hlkwd{round}\hldef{( (}\hlkwd{sqrt}\hldef{(beta1)) ,} \hlnum{2}\hldef{)}
+  \hlkwd{print}\hldef{(}\hlkwd{paste}\hldef{(}\hlsng{"Skewness is"}\hldef{, gamma1))}
+
+  \hldef{gamma2}\hlkwb{<-}\hlkwd{round}\hldef{((beta2}\hlopt{-}\hlnum{3}\hldef{),}\hlnum{2}\hldef{)}
+  \hlkwd{print}\hldef{(}\hlkwd{paste}\hldef{(}\hlsng{"Kurtosis is"}\hldef{, gamma2))}
+
+\hldef{\}}
+\hldef{cars}
+\end{alltt}
+\begin{verbatim}
+##    speed dist
+## 1      4    2
+## 2      4   10
+## 3      7    4
+## 4      7   22
+## 5      8   16
+## 6      9   10
+## 7     10   18
+## 8     10   26
+## 9     10   34
+## 10    11   17
+## 11    11   28
+## 12    12   14
+## 13    12   20
+## 14    12   24
+## 15    12   28
+## 16    13   26
+## 17    13   34
+## 18    13   34
+## 19    13   46
+## 20    14   26
+## 21    14   36
+## 22    14   60
+## 23    14   80
+## 24    15   20
+## 25    15   26
+## 26    15   54
+## 27    16   32
+## 28    16   40
+## 29    17   32
+## 30    17   40
+## 31    17   50
+## 32    18   42
+## 33    18   56
+## 34    18   76
+## 35    18   84
+## 36    19   36
+## 37    19   46
+## 38    19   68
+## 39    20   32
+## 40    20   48
+## 41    20   52
+## 42    20   56
+## 43    20   64
+## 44    22   66
+## 45    23   54
+## 46    24   70
+## 47    24   92
+## 48    24   93
+## 49    24  120
+## 50    25   85
+\end{verbatim}
+\begin{alltt}
+\hlkwd{moments}\hldef{(cars}\hlopt{$}\hldef{speed)}
+\end{alltt}
+\begin{verbatim}
+## [1] 50
+## [1] "mean is 15.4"
+## [1] "second central central is 27.4"
+## [1] "third central central is -16.34"
+## [1] "fourth central central is 1818.98"
+## [1] "Skewness is 0.01"
+## [1] "Kurtosis is 2.42"
+## [1] "Skewness is 0.1"
+## [1] "Kurtosis is -0.58"
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+M1 & 15.4 \\
+M2 & 27.4 \\
+M3 & -16.34 \\
+\hline
+\end{tabular}
+\end{center}
+
+\end{document}
