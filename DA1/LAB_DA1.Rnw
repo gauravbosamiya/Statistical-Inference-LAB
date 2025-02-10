@@ -1,0 +1,49 @@
+\documentclass{article}
+
+\begin{document}
+\begin{center}
+\Large{\textbf{Digital Assignemtn - 1}}
+\newline
+
+Course Details: PMDS503P  \\
+Reg No. 24MDT0179 \\
+Name : Bosamiya Gauravkumar \\
+\end{center}
+<<>>=
+#Q1
+familyA <- c(10,25,4,13,2,17)
+familyB <- c(8,36,7,16,4,33)
+par(mfrow=c(1,2))
+
+piepercentA<- round(100*familyA/sum(familyA), 1)
+piepercentB<- round(100*familyA/sum(familyB), 1)
+
+pie(familyA, label=piepercentA, main="Family A Expenditure",col = rainbow(length(familyA))) 
+pie(familyB, label=piepercentB, main="Family B Expenditure",col = rainbow(length(familyB)))
+
+legend("topright", c('Food','Rent','Clothes','Education','Miscellaneous', 'Saving'), cex = 0.8,fill = rainbow(length(familyA)))
+
+legend("topright", c('Food','Rent','Clothes','Education','Miscellaneous', 'Saving'), cex = 0.8,fill = rainbow(length(familyB)))
+
+@
+\newpage
+
+<<>>=
+# Q2
+
+# 2.1 Display the number of variables in dataset
+
+library(MASS)
+data("Boston")
+ncol(Boston)
+
+# 2.2 Draw a box plot for any two variables
+boxplot(crim ~ rad,data=Boston, varwidth = TRUE, log='y', las = 1)
+title("Box plot of crim and rad")
+
+# 2.3 Scatterplot for any two variables\
+attach(Boston)
+plot(age, dis , main="AGE / DIS graph",xlab="Age", ylab="dis",pch=19)
+@
+
+\end{document}
