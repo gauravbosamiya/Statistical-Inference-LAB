@@ -1,0 +1,299 @@
+\documentclass{article}\usepackage[]{graphicx}\usepackage[]{xcolor}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlsng}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hldef}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+\begin{center}
+\textbf{\Large{Digital Assignment - 2}}
+\newline
+Reg. No. : 24MDT0179\\
+Name : Bosamiya Gauravkumar \\
+Slot : L33 + 34 \\
+Course Title : Statistical Inference LAB\\
+Course Details: PMDs503P \\
+
+\end{center}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#Q1 }
+
+\hlcom{# H0 : mu >= 14}
+\hlcom{# H1 : mu < 14}
+
+\hlkwd{library}\hldef{(}\hlsng{"BSDA"}\hldef{)}
+\end{alltt}
+
+
+{\ttfamily\noindent\color{warningcolor}{\#\# Warning: package 'BSDA' was built under R version 4.4.2}}
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# Loading required package: lattice}}
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# \\\#\# Attaching package: 'BSDA'}}
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# The following object is masked from 'package:datasets':\\\#\# \\\#\# \ \ \ \ Orange}}\begin{alltt}
+\hldef{r1} \hlkwb{<-}\hlkwd{zsum.test}\hldef{(}\hlkwc{mean.x} \hldef{=} \hlnum{13.5}\hldef{,} \hlkwc{sigma.x} \hldef{=} \hlnum{3}\hldef{,} \hlkwc{n.x} \hldef{=} \hlnum{60}\hldef{,} \hlkwc{mu}\hldef{=}\hlnum{14}\hldef{,}
+               \hlkwc{alternative}\hldef{=}\hlsng{"less"}\hldef{,} \hlkwc{conf.level} \hldef{=} \hlnum{1}\hlopt{-}\hlnum{0.05}\hldef{)}
+
+\hldef{r2} \hlkwb{<-} \hlkwd{zsum.test}\hldef{(}\hlkwc{mean.x} \hldef{=} \hlnum{13.5}\hldef{,} \hlkwc{sigma.x} \hldef{=} \hlnum{3}\hldef{,} \hlkwc{n.x} \hldef{=} \hlnum{60}\hldef{,} \hlkwc{mu}\hldef{=}\hlnum{14}\hldef{,}
+                \hlkwc{alternative}\hldef{=}\hlsng{"less"}\hldef{,} \hlkwc{conf.level} \hldef{=} \hlnum{1}\hlopt{-}\hlnum{0.01}\hldef{)}
+
+\hlkwd{cat}\hldef{(}\hlsng{"z value : "}\hldef{,r1}\hlopt{$}\hldef{statistic,} \hlsng{"\textbackslash{}n"}\hldef{)}
+\end{alltt}
+\begin{verbatim}
+## z value :  -1.290994
+\end{verbatim}
+\begin{alltt}
+\hlkwd{cat}\hldef{(}\hlsng{"p value for alpha=0.05 :"}\hldef{, r1}\hlopt{$}\hldef{p.value,} \hlsng{"\textbackslash{}n"}\hldef{)}
+\end{alltt}
+\begin{verbatim}
+## p value for alpha=0.05 : 0.0983528
+\end{verbatim}
+\begin{alltt}
+\hlkwd{cat}\hldef{(}\hlsng{"p value for alpha=0.01 :"}\hldef{,r2}\hlopt{$}\hldef{p.value,} \hlsng{"\textbackslash{}n"}\hldef{)}
+\end{alltt}
+\begin{verbatim}
+## p value for alpha=0.01 : 0.0983528
+\end{verbatim}
+\begin{alltt}
+\hlkwa{if}\hldef{(r1}\hlopt{$}\hldef{p.value} \hlopt{<} \hlnum{0.05}\hldef{)}
+\hldef{\{}
+  \hlkwd{print}\hldef{(}\hlsng{"alpha=0.05, reject null hypothesis"}\hldef{)}
+\hldef{\}}\hlkwa{else}\hldef{\{}
+  \hlkwd{print}\hldef{(}\hlsng{"alpha=0.05, fail to reject null hypothesis"}\hldef{)}
+\hldef{\}}
+\end{alltt}
+\begin{verbatim}
+## [1] "alpha=0.05, fail to reject null hypothesis"
+\end{verbatim}
+\begin{alltt}
+\hlkwa{if}\hldef{(r2}\hlopt{$}\hldef{p.value} \hlopt{<} \hlnum{0.01}\hldef{)}
+\hldef{\{}
+  \hlkwd{print}\hldef{(}\hlsng{"alpha=0.01, reject null hypothesis"}\hldef{)}
+\hldef{\}}\hlkwa{else}\hldef{\{}
+  \hlkwd{print}\hldef{(}\hlsng{"alpha=0.01, fail to reject null hypothesis"}\hldef{)}
+\hldef{\}}
+\end{alltt}
+\begin{verbatim}
+## [1] "alpha=0.01, fail to reject null hypothesis"
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+\newpage
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# Q2}
+
+\hlcom{# H0 : mean1 > = mean2}
+\hlcom{# H1 : mean1 < mean2}
+
+\hldef{result_1} \hlkwb{<-} \hlkwd{zsum.test}\hldef{(}\hlkwc{mean.x} \hldef{=} \hlnum{63.5}\hldef{,} \hlkwc{sigma.x} \hldef{=} \hlnum{5.4}\hldef{,} \hlkwc{n.x} \hldef{=} \hlnum{45}\hldef{,}
+                    \hlkwc{mean.y} \hldef{=} \hlnum{66.2}\hldef{,} \hlkwc{sigma.y} \hldef{=} \hlnum{5.8}\hldef{,} \hlkwc{n.y} \hldef{=} \hlnum{60}\hldef{,}
+                    \hlkwc{alternative} \hldef{=} \hlsng{"less"}\hldef{,} \hlkwc{mu} \hldef{=} \hlnum{0}\hldef{,} \hlkwc{conf.level} \hldef{=} \hlnum{0.95}\hldef{)}
+
+\hldef{result_2} \hlkwb{<-} \hlkwd{zsum.test}\hldef{(}\hlkwc{mean.x} \hldef{=} \hlnum{63.5}\hldef{,} \hlkwc{sigma.x} \hldef{=} \hlnum{5.4}\hldef{,} \hlkwc{n.x} \hldef{=} \hlnum{45}\hldef{,}
+                    \hlkwc{mean.y} \hldef{=} \hlnum{66.2}\hldef{,} \hlkwc{sigma.y} \hldef{=} \hlnum{5.8}\hldef{,} \hlkwc{n.y} \hldef{=} \hlnum{60}\hldef{,}
+                    \hlkwc{alternative} \hldef{=} \hlsng{"less"}\hldef{,} \hlkwc{mu} \hldef{=} \hlnum{0}\hldef{,} \hlkwc{conf.level} \hldef{=} \hlnum{0.99}\hldef{)}
+
+\hlkwd{cat}\hldef{(}\hlsng{"z value : "}\hldef{,result_1}\hlopt{$}\hldef{statistic,} \hlsng{"\textbackslash{}n"}\hldef{)}
+\end{alltt}
+\begin{verbatim}
+## z value :  -2.455899
+\end{verbatim}
+\begin{alltt}
+\hlkwd{cat}\hldef{(}\hlsng{"p value for alpha=0.05 :"}\hldef{, result_1}\hlopt{$}\hldef{p.value,} \hlsng{"\textbackslash{}n"}\hldef{)}
+\end{alltt}
+\begin{verbatim}
+## p value for alpha=0.05 : 0.007026634
+\end{verbatim}
+\begin{alltt}
+\hlkwd{cat}\hldef{(}\hlsng{"p value for alpha=0.01 :"}\hldef{,result_2}\hlopt{$}\hldef{p.value,} \hlsng{"\textbackslash{}n"}\hldef{)}
+\end{alltt}
+\begin{verbatim}
+## p value for alpha=0.01 : 0.007026634
+\end{verbatim}
+\begin{alltt}
+\hlkwa{if}\hldef{(result_1}\hlopt{$}\hldef{p.value} \hlopt{<} \hlnum{0.05}\hldef{)}
+\hldef{\{}
+  \hlkwd{print}\hldef{(}\hlsng{"alpha=0.05, reject null hypothesis"}\hldef{)}
+\hldef{\}}\hlkwa{else}\hldef{\{}
+  \hlkwd{print}\hldef{(}\hlsng{"alpha=0.05, fail to reject null hypothesis"}\hldef{)}
+\hldef{\}}
+\end{alltt}
+\begin{verbatim}
+## [1] "alpha=0.05, reject null hypothesis"
+\end{verbatim}
+\begin{alltt}
+\hlkwa{if}\hldef{(result_2}\hlopt{$}\hldef{p.value} \hlopt{<} \hlnum{0.01}\hldef{)}
+\hldef{\{}
+  \hlkwd{print}\hldef{(}\hlsng{"alpha=0.01, reject null hypothesis"}\hldef{)}
+\hldef{\}}\hlkwa{else}\hldef{\{}
+  \hlkwd{print}\hldef{(}\hlsng{"alpha=0.01, fail to reject null hypothesis"}\hldef{)}
+\hldef{\}}
+\end{alltt}
+\begin{verbatim}
+## [1] "alpha=0.01, reject null hypothesis"
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+\newpage
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# Q3}
+
+\hlcom{# H0 : mean1 = mean2}
+\hlcom{# H1 : mean1 != mean2}
+
+\hldef{n_a} \hlkwb{<-} \hlnum{190}
+\hldef{n_b} \hlkwb{<-} \hlnum{65}
+\hldef{c_a} \hlkwb{<-} \hlnum{100}
+\hldef{c_b} \hlkwb{<-} \hlnum{55}
+
+\hldef{p_a} \hlkwb{<-} \hldef{c_a} \hlopt{/} \hldef{n_a}
+\hldef{p_b} \hlkwb{<-} \hldef{c_b} \hlopt{/} \hldef{n_b}
+
+\hldef{result} \hlkwb{<-} \hlkwd{prop.test}\hldef{(}\hlkwc{x} \hldef{=} \hlkwd{c}\hldef{(c_a, c_b),} \hlkwc{n}\hldef{=}\hlkwd{c}\hldef{(n_a, n_b),} \hlkwc{alternative} \hldef{=} \hlsng{"two.sided"}\hldef{,} \hlkwc{correct} \hldef{=} \hlnum{FALSE}\hldef{)}
+
+\hlkwd{cat}\hldef{(}\hlsng{"z value : "}\hldef{,}\hlkwd{sqrt}\hldef{(result}\hlopt{$}\hldef{statistic),} \hlsng{"\textbackslash{}n"}\hldef{)}
+\end{alltt}
+\begin{verbatim}
+## z value :  4.558982
+\end{verbatim}
+\begin{alltt}
+\hlkwd{cat}\hldef{(}\hlsng{"p value :"}\hldef{, result}\hlopt{$}\hldef{p.value,} \hlsng{"\textbackslash{}n"}\hldef{)}
+\end{alltt}
+\begin{verbatim}
+## p value : 5.140223e-06
+\end{verbatim}
+\begin{alltt}
+\hlkwa{if}\hldef{(result}\hlopt{$}\hldef{p.value} \hlopt{<} \hlnum{0.05}\hldef{)}
+\hldef{\{}
+  \hlkwd{print}\hldef{(}\hlsng{"alpha=0.05, reject null hypothesis"}\hldef{)}
+\hldef{\}}\hlkwa{else}\hldef{\{}
+  \hlkwd{print}\hldef{(}\hlsng{"alpha=0.05, fail to reject null hypothesis"}\hldef{)}
+\hldef{\}}
+\end{alltt}
+\begin{verbatim}
+## [1] "alpha=0.05, reject null hypothesis"
+\end{verbatim}
+\begin{alltt}
+\hlkwa{if}\hldef{(result}\hlopt{$}\hldef{p.value} \hlopt{<} \hlnum{0.01}\hldef{)}
+\hldef{\{}
+  \hlkwd{print}\hldef{(}\hlsng{"alpha=0.01, reject null hypothesis"}\hldef{)}
+\hldef{\}}\hlkwa{else}\hldef{\{}
+  \hlkwd{print}\hldef{(}\hlsng{"alpha=0.01, fail to reject null hypothesis"}\hldef{)}
+\hldef{\}}
+\end{alltt}
+\begin{verbatim}
+## [1] "alpha=0.01, reject null hypothesis"
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# Q4}
+\hlcom{# H0: mean <= 0.65}
+\hlcom{# H1: mean > 0.65}
+
+\hldef{n} \hlkwb{<-} \hlnum{600}
+\hldef{f} \hlkwb{<-} \hlnum{414}
+\hldef{p_0} \hlkwb{<-} \hlnum{0.65}
+
+\hldef{p_h} \hlkwb{<-} \hldef{f}\hlopt{/}\hldef{n}
+
+\hldef{r_1} \hlkwb{<-} \hlkwd{prop.test}\hldef{(}\hlkwc{x}\hldef{=f,}\hlkwc{n}\hldef{=n,} \hlkwc{p}\hldef{=p_0,}
+                 \hlkwc{alternative} \hldef{=} \hlsng{'greater'}\hldef{,} \hlkwc{correct} \hldef{=}  \hlnum{FALSE}\hldef{)}
+
+\hlkwd{cat}\hldef{(}\hlsng{"z value : "}\hldef{,}\hlkwd{sqrt}\hldef{(r_1}\hlopt{$}\hldef{statistic),} \hlsng{"\textbackslash{}n"}\hldef{)}
+\end{alltt}
+\begin{verbatim}
+## z value :  2.05421
+\end{verbatim}
+\begin{alltt}
+\hlkwd{cat}\hldef{(}\hlsng{"p value :"}\hldef{, r_1}\hlopt{$}\hldef{p.value,} \hlsng{"\textbackslash{}n"}\hldef{)}
+\end{alltt}
+\begin{verbatim}
+## p value : 0.01997767
+\end{verbatim}
+\begin{alltt}
+\hlkwa{if}\hldef{(r_1}\hlopt{$}\hldef{p.value} \hlopt{<} \hlnum{0.05}\hldef{)}
+\hldef{\{}
+  \hlkwd{print}\hldef{(}\hlsng{"alpha=0.05, reject null hypothesis"}\hldef{)}
+\hldef{\}}\hlkwa{else}\hldef{\{}
+  \hlkwd{print}\hldef{(}\hlsng{"alpha=0.05, fail to reject null hypothesis"}\hldef{)}
+\hldef{\}}
+\end{alltt}
+\begin{verbatim}
+## [1] "alpha=0.05, reject null hypothesis"
+\end{verbatim}
+\begin{alltt}
+\hlkwa{if}\hldef{(r_1}\hlopt{$}\hldef{p.value} \hlopt{<} \hlnum{0.01}\hldef{)}
+\hldef{\{}
+  \hlkwd{print}\hldef{(}\hlsng{"alpha=0.01, reject null hypothesis"}\hldef{)}
+\hldef{\}}\hlkwa{else}\hldef{\{}
+  \hlkwd{print}\hldef{(}\hlsng{"alpha=0.01, fail to reject null hypothesis"}\hldef{)}
+\hldef{\}}
+\end{alltt}
+\begin{verbatim}
+## [1] "alpha=0.01, fail to reject null hypothesis"
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+\end{document} 
